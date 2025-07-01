@@ -112,7 +112,7 @@ export const ImageBuilderHeader = ({
           isOpen={showImportModal}
         />
       )}
-      <PageHeader>
+      <PageHeader className="image-builder-header">
         <Flex>
           <FlexItem>
             <PageHeaderTitle
