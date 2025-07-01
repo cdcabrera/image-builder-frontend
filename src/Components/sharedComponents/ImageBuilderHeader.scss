@@ -15,8 +15,8 @@
     // background-color: var(--pf-v6-global--palette--white);
     background-color: var(--pf-t--global--background--color--100);
     opacity: 1; // Ensure full opacity to hide scrolling content
-    border-bottom: var(--pf-v6-global--BorderWidth--sm) solid var(--pf-v6-global--BorderColor--100);
-    box-shadow: var(--pf-v6-global--BoxShadow--sm);
+    border-bottom: var(--pf-t--global--border--width--sm) solid var(--pf-t--global--border--color--default);
+    box-shadow: var(--pf-t--global--box-shadow--sm);
 }
 
 // Content area adjustment for sticky header
