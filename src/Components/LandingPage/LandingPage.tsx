@@ -86,7 +86,6 @@ export const LandingPage = () => {
   return (
     <>
       <ImageBuilderHeader activeTab={activeTabKey} />
-      <div className="sticky-header-content">
         {edgeParityFlag ? (
           <Tabs
             className="pf-c-tabs pf-c-page-header pf-c-table"
@@ -171,7 +170,6 @@ export const LandingPage = () => {
           imageList
         )}
         <Outlet />
-      </div>
     </>
   );
 };
