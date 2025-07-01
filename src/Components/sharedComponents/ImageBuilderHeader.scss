@@ -5,3 +5,20 @@
 .header-button {
     padding-right: 0;
 }
+
+// Sticky header implementation
+.pf-v6-c-page__header {
+    position: sticky;
+    top: 0;
+    z-index: var(--pf-v6-global--ZIndex--lg);
+    background-color: var(--pf-v6-global--BackgroundColor--100);
+    border-bottom: var(--pf-v6-global--BorderWidth--sm) solid var(--pf-v6-global--BorderColor--100);
+    box-shadow: var(--pf-v6-global--BoxShadow--sm);
+}
+
+// Content area adjustment for sticky header
+.sticky-header-content {
+    // Ensure content scrolls properly under the sticky header
+    // PatternFly header typically has a standard height
+    padding-top: 0; // Let natural spacing handle this
+}
