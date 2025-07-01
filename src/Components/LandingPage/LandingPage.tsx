@@ -54,7 +54,8 @@ export const LandingPage = () => {
     setActiveTabKey(tabIndex);
   };
 
-  const edgeParityFlag = useFlag('edgeParity.image-list');
+  let edgeParityFlag = useFlag('edgeParity.image-list');
+  edgeParityFlag = false;
 
   const imageList = (
     <>
@@ -86,6 +87,7 @@ export const LandingPage = () => {
   return (
     <>
       <ImageBuilderHeader activeTab={activeTabKey} />
+      <PageSection hasBodyWrapper={false}>
       {edgeParityFlag ? (
         <Tabs
           className="pf-c-tabs pf-c-page-header pf-c-table"
@@ -170,6 +172,7 @@ export const LandingPage = () => {
         imageList
       )}
       <Outlet />
+      </PageSection>
     </>
   );
 };
