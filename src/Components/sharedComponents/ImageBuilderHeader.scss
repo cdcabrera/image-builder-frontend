@@ -10,7 +10,8 @@
 .image-builder-header {
     position: sticky;
     top: 0;
-    z-index: var(--pf-v6-global--ZIndex--lg);
+    order: -1; // Ensure header appears first in flex/grid layout
+    z-index: 1000; // Fallback numeric z-index since PatternFly variable might not be available
     background-color: var(--pf-v6-global--BackgroundColor--100);
     border-bottom: var(--pf-v6-global--BorderWidth--sm) solid var(--pf-v6-global--BorderColor--100);
     box-shadow: var(--pf-v6-global--BoxShadow--sm);
