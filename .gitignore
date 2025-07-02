@@ -49,3 +49,5 @@ rpmbuild
 /playwright/.cache/
 .env
 .auth
+!.agent
+
