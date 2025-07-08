@@ -58,3 +58,7 @@ div.pf-v6-c-alert.pf-m-inline.pf-m-plain.pf-m-warning {
 .pf-v6-c-wizard {
     flex: 1;
 }
+
+.activation-key-details-popover .pf-c-popover {
+  z-index: 200;
+}
