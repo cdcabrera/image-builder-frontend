@@ -12,9 +12,14 @@ import {
   MenuToggle,
   TextInputGroup,
   TextInputGroupMain,
+  Popover,
+  Button,
+  Title,
 } from '@patternfly/react-core';
+import { InfoCircleIcon } from '@patternfly/react-icons';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 
+import ActivationKeyInformation from './ActivationKeyInformation';
 import ManageKeysButton from './ManageKeysButton';
 import PopoverActivation from './PopoverActivation';
 
@@ -241,6 +246,11 @@ const ActivationKeysList = () => {
     </MenuToggle>
   );
 
+  const showViewDetails =
+    registrationType === 'register-now' ||
+    registrationType === 'register-now-insights' ||
+    registrationType === 'register-now-rhc';
+
   return (
     <>
       <FormGroup
@@ -250,17 +260,40 @@ const ActivationKeysList = () => {
           </>
         }
       >
-        <Select
-          isScrollable
-          isOpen={isOpen}
-          selected={activationKey}
-          onSelect={setActivationKey}
-          onOpenChange={handleToggle}
-          toggle={toggle}
-          shouldFocusFirstItemOnOpen={false}
-        >
-          <SelectList>{prepareSelectOptions()}</SelectList>
-        </Select>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Select
+            isScrollable
+            isOpen={isOpen}
+            selected={activationKey}
+            onSelect={setActivationKey}
+            onOpenChange={handleToggle}
+            toggle={toggle}
+            shouldFocusFirstItemOnOpen={false}
+          >
+            <SelectList>{prepareSelectOptions()}</SelectList>
+          </Select>
+          {!process.env.IS_ON_PREMISE && showViewDetails && activationKey && (
+            <Popover
+              headerContent={
+                <Title headingLevel="h6" size="lg">
+                  Selected activation key
+                </Title>
+              }
+              position="right"
+              minWidth="30rem"
+              bodyContent={<ActivationKeyInformation />}
+              className="activation-key-details-popover"
+            >
+              <Button
+                variant="link"
+                icon={<InfoCircleIcon />}
+                iconPosition="left"
+              >
+                View details
+              </Button>
+            </Popover>
+          )}
+        </div>
         <Content>
           <Content>
             Create and manage activation keys on the <ManageKeysButton />

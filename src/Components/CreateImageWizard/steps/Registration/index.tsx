@@ -30,17 +30,6 @@ const RegistrationStep = () => {
       {registrationType === 'register-satellite' && <SatelliteRegistration />}
       {!process.env.IS_ON_PREMISE &&
         registrationType !== 'register-satellite' && <ActivationKeysList />}
-      {!process.env.IS_ON_PREMISE &&
-        activationKey &&
-        registrationType !== 'register-later' &&
-        registrationType !== 'register-satellite' && (
-          <FormGroup
-            label={'Selected activation key'}
-            data-testid="selected-activation-key"
-          >
-            <ActivationKeyInformation />
-          </FormGroup>
-        )}
     </Form>
   );
 };
