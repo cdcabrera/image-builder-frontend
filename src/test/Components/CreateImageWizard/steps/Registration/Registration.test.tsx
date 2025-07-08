@@ -1,5 +1,5 @@
 import type { Router as RemixRouter } from '@remix-run/router';
-import { screen, waitFor, within } from '@testing-library/react';
+import { screen, waitFor, within, act } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { http, HttpResponse } from 'msw';
 
@@ -248,6 +248,26 @@ describe('Step Registration', () => {
     await screen.findByRole('heading', {
       name: /Register systems using this image/,
     });
+  });
+
+  test('show details when "View details" is clicked', async () => {
+    await renderCreateMode();
+    await goToRegistrationStep();
+    await openActivationKeyDropdown();
+    await selectActivationKey('name0');
+
+    const viewDetailsButton = screen.getByRole('button', { name: /view details/i });
+    expect(viewDetailsButton).toBeInTheDocument();
+
+    const user = userEvent.setup();
+    await act(async () => {
+      await user.click(viewDetailsButton);
+    });
+
+    expect(screen.getByText('Name')).toBeInTheDocument();
+    expect(screen.getByText('name0')).toBeInTheDocument();
+    expect(screen.getByText('Role')).toBeInTheDocument();
+    expect(screen.getByText(/SLA/i)).toBeInTheDocument();
   });
 });
 

@@ -12,9 +12,16 @@ import {
   MenuToggle,
   TextInputGroup,
   TextInputGroupMain,
+  Popover,
+  Button,
+  Title,
+  Flex,
+  FlexItem,
 } from '@patternfly/react-core';
+import { InfoCircleIcon } from '@patternfly/react-icons';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 
+import ActivationKeyInformation from './ActivationKeyInformation';
 import ManageKeysButton from './ManageKeysButton';
 import PopoverActivation from './PopoverActivation';
 
@@ -250,17 +257,46 @@ const ActivationKeysList = () => {
           </>
         }
       >
-        <Select
-          isScrollable
-          isOpen={isOpen}
-          selected={activationKey}
-          onSelect={setActivationKey}
-          onOpenChange={handleToggle}
-          toggle={toggle}
-          shouldFocusFirstItemOnOpen={false}
-        >
-          <SelectList>{prepareSelectOptions()}</SelectList>
-        </Select>
+        <Flex spaceItems={{ default: 'spaceItemsMd' }}>
+          <FlexItem>
+            <Select
+              isScrollable
+              isOpen={isOpen}
+              selected={activationKey}
+              onSelect={setActivationKey}
+              onOpenChange={handleToggle}
+              toggle={toggle}
+              shouldFocusFirstItemOnOpen={false}
+            >
+              <SelectList>{prepareSelectOptions()}</SelectList>
+            </Select>
+          </FlexItem>
+          {!process.env.IS_ON_PREMISE &&
+            activationKey &&
+            registrationType !== 'register-later' &&
+            registrationType !== 'register-satellite' && (
+              <FlexItem>
+                <Popover
+                  zIndex={200}
+                  headerContent={
+                    <Content className="pf-v6-u-font-size-lg">Selected activation key</Content>
+                  }
+                  headerComponent="h2"
+                  position="right"
+                  minWidth="20rem"
+                  bodyContent={<ActivationKeyInformation />}
+                >
+                  <Button
+                    variant="link"
+                    icon={<InfoCircleIcon />}
+                    iconPosition="left"
+                  >
+                    View details
+                  </Button>
+                </Popover>
+              </FlexItem>
+            )}
+        </Flex>
         <Content>
           <Content>
             Create and manage activation keys on the <ManageKeysButton />
