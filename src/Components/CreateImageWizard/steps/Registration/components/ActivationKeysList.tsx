@@ -14,6 +14,7 @@ import {
   TextInputGroupMain,
   Popover,
   Button,
+  Title, // Add Title import
 } from '@patternfly/react-core';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 import { InfoCircleIcon } from '@patternfly/react-icons';
@@ -273,7 +274,7 @@ const ActivationKeysList = () => {
           </Select>
           {(!process.env.IS_ON_PREMISE && showViewDetails && activationKey) && (
             <Popover
-              headerContent="Selected activation key"
+              headerContent={<Title headingLevel="h6" size="lg">Selected activation key</Title>}
               position="right"
               minWidth="30rem"
               bodyContent={<ActivationKeyInformation />}

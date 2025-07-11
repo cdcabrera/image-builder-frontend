@@ -39,13 +39,13 @@ const ActivationKeyInformation = (): JSX.Element => {
       {isSuccessActivationKeyInfo && (
         <DescriptionList isCompact>
           <DescriptionListGroup>
-            <DescriptionListTerm>Name</DescriptionListTerm>
+            <DescriptionListTerm className="pf-v6-u-font-size-md">Name</DescriptionListTerm>
             <DescriptionListDescription>
               <Content component={ContentVariants.p}>{activationKey}</Content>
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
-            <DescriptionListTerm>Role</DescriptionListTerm>
+            <DescriptionListTerm className="pf-v6-u-font-size-md">Role</DescriptionListTerm>
             <DescriptionListDescription>
               <Content component={ContentVariants.p}>
                 {activationKeyInfo?.body?.role || 'Not defined'}
@@ -53,7 +53,7 @@ const ActivationKeyInformation = (): JSX.Element => {
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
-            <DescriptionListTerm>SLA</DescriptionListTerm>
+            <DescriptionListTerm className="pf-v6-u-font-size-md">SLA</DescriptionListTerm>
             <DescriptionListDescription>
               <Content component={ContentVariants.p}>
                 {activationKeyInfo?.body?.serviceLevel || 'Not defined'}
@@ -61,7 +61,7 @@ const ActivationKeyInformation = (): JSX.Element => {
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
-            <DescriptionListTerm>Usage</DescriptionListTerm>
+            <DescriptionListTerm className="pf-v6-u-font-size-md">Usage</DescriptionListTerm>
             <DescriptionListDescription>
               <Content component={ContentVariants.p}>
                 {activationKeyInfo?.body?.usage || 'Not defined'}
@@ -69,7 +69,7 @@ const ActivationKeyInformation = (): JSX.Element => {
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
-            <DescriptionListTerm>Additional repositories</DescriptionListTerm>
+            <DescriptionListTerm className="pf-v6-u-font-size-md">Additional repositories</DescriptionListTerm>
             <DescriptionListDescription>
               {activationKeyInfo?.body?.additionalRepositories &&
               activationKeyInfo?.body?.additionalRepositories?.length > 0 ? (
@@ -122,7 +122,7 @@ const ActivationKeyInformation = (): JSX.Element => {
         <>
           <DescriptionList isCompact>
             <DescriptionListGroup>
-              <DescriptionListTerm>Name</DescriptionListTerm>
+              <DescriptionListTerm className="pf-v6-u-font-size-md">Name</DescriptionListTerm>
               <DescriptionListDescription>
                 <Content component={ContentVariants.p}>{activationKey}</Content>
               </DescriptionListDescription>
