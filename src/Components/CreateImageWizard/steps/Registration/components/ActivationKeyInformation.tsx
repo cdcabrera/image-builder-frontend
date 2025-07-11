@@ -12,7 +12,6 @@ import {
   Button,
   Popover,
 } from '@patternfly/react-core';
-import { HelpIcon } from '@patternfly/react-icons';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
 import { useAppSelector } from '../../../../../store/hooks';
@@ -70,9 +69,7 @@ const ActivationKeyInformation = (): JSX.Element => {
             </DescriptionListDescription>
           </DescriptionListGroup>
           <DescriptionListGroup>
-            <DescriptionListTerm>
-              Additional repositories
-            </DescriptionListTerm>
+            <DescriptionListTerm>Additional repositories</DescriptionListTerm>
             <DescriptionListDescription>
               {activationKeyInfo?.body?.additionalRepositories &&
               activationKeyInfo?.body?.additionalRepositories?.length > 0 ? (
@@ -81,10 +78,7 @@ const ActivationKeyInformation = (): JSX.Element => {
                   minWidth="30rem"
                   bodyContent={
                     <>
-                      <Content
-                        component={ContentVariants.h3}
-                        style={{ marginBottom: 8 }}
-                      >
+                      <Content component={ContentVariants.h3}>
                         Additional repositories
                       </Content>
                       <Table
@@ -112,7 +106,6 @@ const ActivationKeyInformation = (): JSX.Element => {
                   <Button
                     variant="link"
                     aria-label="Show additional repositories"
-                    style={{ padding: 0 }}
                   >
                     {activationKeyInfo.body?.additionalRepositories?.length}{' '}
                     repositories
