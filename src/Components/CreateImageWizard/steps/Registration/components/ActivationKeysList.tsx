@@ -280,12 +280,8 @@ const ActivationKeysList = () => {
                 </Title>
               }
               position="right"
-              minWidth="30rem"
-              bodyContent={
-                <Content className="pf-v6-u-p-md">
-                  <ActivationKeyInformation />
-                </Content>
-              }
+              minWidth="20rem"
+              bodyContent={<ActivationKeyInformation />}
               className="activation-key-details-popover"
             >
               <Button
