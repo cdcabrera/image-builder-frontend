@@ -71,25 +71,7 @@ const ActivationKeyInformation = (): JSX.Element => {
           </DescriptionListGroup>
           <DescriptionListGroup>
             <DescriptionListTerm>
-              <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                Additional repositories
-                <Popover
-                  bodyContent={
-                    <Content component={ContentVariants.p}>
-                      The core repositories for your operating system version
-                      are always enabled and do not need to be explicitly added
-                      to the activation key.
-                    </Content>
-                  }
-                >
-                  <Button
-                    icon={<HelpIcon />}
-                    variant="plain"
-                    aria-label="About additional repositories"
-                    style={{ padding: 0, marginLeft: 4 }}
-                  />
-                </Popover>
-              </span>
+              Additional repositories
             </DescriptionListTerm>
             <DescriptionListDescription>
               {activationKeyInfo?.body?.additionalRepositories &&
