@@ -76,7 +76,9 @@ const ActivationKeyInformation = (): JSX.Element => {
                 <Popover
                   bodyContent={
                     <Content component={ContentVariants.p}>
-                      The core repositories for your operating system version are always enabled and do not need to be explicitly added to the activation key.
+                      The core repositories for your operating system version
+                      are always enabled and do not need to be explicitly added
+                      to the activation key.
                     </Content>
                   }
                 >
@@ -97,21 +99,29 @@ const ActivationKeyInformation = (): JSX.Element => {
                   minWidth="30rem"
                   bodyContent={
                     <>
-                      <Content component={ContentVariants.h3} style={{ marginBottom: 8 }}>
+                      <Content
+                        component={ContentVariants.h3}
+                        style={{ marginBottom: 8 }}
+                      >
                         Additional repositories
                       </Content>
-                      <Table aria-label="Additional repositories table" variant="compact">
+                      <Table
+                        aria-label="Additional repositories table"
+                        variant="compact"
+                      >
                         <Thead>
                           <Tr>
                             <Th>Name</Th>
                           </Tr>
                         </Thead>
                         <Tbody>
-                          {activationKeyInfo.body?.additionalRepositories?.map((repo, index) => (
-                            <Tr key={index}>
-                              <Td>{repo.repositoryLabel}</Td>
-                            </Tr>
-                          ))}
+                          {activationKeyInfo.body?.additionalRepositories?.map(
+                            (repo, index) => (
+                              <Tr key={index}>
+                                <Td>{repo.repositoryLabel}</Td>
+                              </Tr>
+                            )
+                          )}
                         </Tbody>
                       </Table>
                     </>
@@ -122,13 +132,12 @@ const ActivationKeyInformation = (): JSX.Element => {
                     aria-label="Show additional repositories"
                     style={{ padding: 0 }}
                   >
-                    {activationKeyInfo.body?.additionalRepositories?.length} repositories
+                    {activationKeyInfo.body?.additionalRepositories?.length}{' '}
+                    repositories
                   </Button>
                 </Popover>
               ) : (
-                <Content component={ContentVariants.p} className="pf-v6-u-color-200">
-                  None
-                </Content>
+                <Content component={ContentVariants.p}>None</Content>
               )}
             </DescriptionListDescription>
           </DescriptionListGroup>
@@ -151,7 +160,8 @@ const ActivationKeyInformation = (): JSX.Element => {
             isPlain
             isInline
           >
-            Information about the activation key cannot be loaded. Please check the key was not removed and try again later.
+            Information about the activation key cannot be loaded. Please check
+            the key was not removed and try again later.
           </Alert>
         </>
       )}
