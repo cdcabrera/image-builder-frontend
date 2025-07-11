@@ -14,7 +14,7 @@ import {
   TextInputGroupMain,
   Popover,
   Button,
-  Title, // Add Title import
+  Title,
 } from '@patternfly/react-core';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 import { InfoCircleIcon } from '@patternfly/react-icons';
